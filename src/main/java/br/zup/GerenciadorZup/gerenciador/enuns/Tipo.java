@@ -5,6 +5,7 @@ public enum Tipo {
     LUZ,
     AGUA,
     COMIDA,
+    LAZER,
     OUTROS;
 
 }
