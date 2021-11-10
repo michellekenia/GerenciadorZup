@@ -3,10 +3,14 @@ package br.zup.GerenciadorZup.gerenciador;
 import br.zup.GerenciadorZup.gerenciador.enuns.Status;
 import br.zup.GerenciadorZup.gerenciador.enuns.Tipo;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class Conta {
+@Entity
+@Table (name = "contas")
+public class Conta  {
 
     private String nome;
     private double valor;
