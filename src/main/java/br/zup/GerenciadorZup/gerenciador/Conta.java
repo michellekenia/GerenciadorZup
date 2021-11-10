@@ -1,6 +1,7 @@
 package br.zup.GerenciadorZup.gerenciador;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Conta {
 
@@ -8,7 +9,7 @@ public class Conta {
     private double valor;
     private Tipo tipo;
     private LocalDate dataDeVencimento;
-    private LocalDate dataDePagamento;
+    private LocalDateTime dataDePagamento;
     private Status status;
 
     public Conta() {
