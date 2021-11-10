@@ -2,11 +2,15 @@ package br.zup.GerenciadorZup.gerenciador;
 
 
 import br.zup.GerenciadorZup.gerenciador.dtos.ContaDTO;
+import br.zup.GerenciadorZup.gerenciador.dtos.ResumoDTO;
 import br.zup.GerenciadorZup.gerenciador.dtos.RetornoDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/contas")
@@ -29,6 +33,22 @@ public class ContaController {
 
      return retornoDTO;
 
+    }
+
+    @GetMapping
+    public List <ResumoDTO> exibirContas () {
+
+        List <ResumoDTO> contasDTOS = new ArrayList<>();
+
+        for (Conta conta : contaService.exibirTodasAsContas()) {
+
+            ResumoDTO resumoDTO = modelMapper.map(conta, ResumoDTO.class);
+
+            contasDTOS.add(resumoDTO);
+
+        }
+
+         return contasDTOS;
     }
 
 
