@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class ContaService {
@@ -24,6 +25,13 @@ public class ContaService {
         }
 
         return contaRepository.save(conta);
+
+    }
+
+    public List <Conta> exibirTodasAsContas (Integer id, String nome, Double valor, Status status) {
+
+        List <Conta> contas = (List<Conta>) contaRepository.findAll();
+        return contas;
 
     }
 
