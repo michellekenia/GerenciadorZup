@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 public class RetornoDTO {
 
-    @Id
     private int id;
     private String nome;
     private double valor;
@@ -21,15 +20,6 @@ public class RetornoDTO {
     public RetornoDTO() {
     }
 
-    public RetornoDTO(int id, String nome, double valor, Tipo tipo, LocalDate dataDeVencimento, LocalDateTime dataDePagamento, Status status) {
-        this.id = id;
-        this.nome = nome;
-        this.valor = valor;
-        this.tipo = tipo;
-        this.dataDeVencimento = dataDeVencimento;
-        this.dataDePagamento = dataDePagamento;
-        this.status = status;
-    }
 
     public int getId() {
         return id;
