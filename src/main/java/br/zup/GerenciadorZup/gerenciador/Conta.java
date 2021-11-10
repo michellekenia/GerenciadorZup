@@ -3,9 +3,7 @@ package br.zup.GerenciadorZup.gerenciador;
 import br.zup.GerenciadorZup.gerenciador.enuns.Status;
 import br.zup.GerenciadorZup.gerenciador.enuns.Tipo;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -14,6 +12,7 @@ import java.time.LocalDateTime;
 public class Conta  {
 
     @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
     private double valor;
