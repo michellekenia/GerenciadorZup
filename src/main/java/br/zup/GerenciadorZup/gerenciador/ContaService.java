@@ -1,6 +1,7 @@
 package br.zup.GerenciadorZup.gerenciador;
 
 import br.zup.GerenciadorZup.gerenciador.enuns.Status;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -8,6 +9,7 @@ import java.time.LocalDate;
 @Service
 public class ContaService {
 
+    @Autowired
     private ContaRepository contaRepository;
 
     public Conta salvarConta(Conta conta) {
