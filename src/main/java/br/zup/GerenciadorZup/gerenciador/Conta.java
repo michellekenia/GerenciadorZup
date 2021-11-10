@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table (name = "contas")
+@Table (name = "conta_zup")
 public class Conta  {
 
     @Id
@@ -24,15 +24,6 @@ public class Conta  {
     public Conta() {
     }
 
-    public Conta(int id, String nome, double valor, Tipo tipo, LocalDate dataDeVencimento, LocalDateTime dataDePagamento, Status status) {
-        this.id = id;
-        this.nome = nome;
-        this.valor = valor;
-        this.tipo = tipo;
-        this.dataDeVencimento = dataDeVencimento;
-        this.dataDePagamento = dataDePagamento;
-        this.status = status;
-    }
 
     public int getId() {
         return id;
