@@ -7,4 +7,11 @@ public class ContaService {
 
     private ContaRepository contaRepository;
 
+    public Conta salvarConta (Conta conta) {
+
+        return contaRepository.save(conta);
+
+    }
+
+
 }
