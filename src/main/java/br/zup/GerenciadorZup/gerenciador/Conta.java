@@ -4,6 +4,7 @@ import br.zup.GerenciadorZup.gerenciador.enuns.Status;
 import br.zup.GerenciadorZup.gerenciador.enuns.Tipo;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -12,6 +13,8 @@ import java.time.LocalDateTime;
 @Table (name = "contas")
 public class Conta  {
 
+    @Id
+    private int id;
     private String nome;
     private double valor;
     private Tipo tipo;
@@ -22,13 +25,22 @@ public class Conta  {
     public Conta() {
     }
 
-    public Conta(String nome, double valor, Tipo tipo, LocalDate dataDeVencimento, LocalDate dataDePagamento, Status status) {
+    public Conta(int id, String nome, double valor, Tipo tipo, LocalDate dataDeVencimento, LocalDateTime dataDePagamento, Status status) {
+        this.id = id;
         this.nome = nome;
         this.valor = valor;
         this.tipo = tipo;
         this.dataDeVencimento = dataDeVencimento;
         this.dataDePagamento = dataDePagamento;
         this.status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -63,11 +75,11 @@ public class Conta  {
         this.dataDeVencimento = dataDeVencimento;
     }
 
-    public LocalDate getDataDePagamento() {
+    public LocalDateTime getDataDePagamento() {
         return dataDePagamento;
     }
 
-    public void setDataDePagamento(LocalDate dataDePagamento) {
+    public void setDataDePagamento(LocalDateTime dataDePagamento) {
         this.dataDePagamento = dataDePagamento;
     }
 
