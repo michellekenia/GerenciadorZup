@@ -14,12 +14,6 @@ public class ContaDTO {
     public ContaDTO() {
     }
 
-    public ContaDTO(String nome, double valor, Tipo tipo, LocalDate dataDeVencimento) {
-        this.nome = nome;
-        this.valor = valor;
-        this.tipo = tipo;
-        this.dataDeVencimento = dataDeVencimento;
-    }
 
     public String getNome() {
         return nome;
