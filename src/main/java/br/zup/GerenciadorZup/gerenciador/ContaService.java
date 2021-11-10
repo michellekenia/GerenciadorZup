@@ -28,7 +28,7 @@ public class ContaService {
 
     }
 
-    public List <Conta> exibirTodasAsContas (Integer id, String nome, Double valor, Status status) {
+    public List <Conta> exibirTodasAsContas () {
 
         List <Conta> contas = (List<Conta>) contaRepository.findAll();
         return contas;
