@@ -1,4 +1,8 @@
 package br.zup.GerenciadorZup.gerenciador;
 
-public interface ContaRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface ContaRepository extends CrudRepository <Conta, Integer > {
+
+
 }
