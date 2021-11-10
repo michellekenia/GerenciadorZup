@@ -1,4 +1,4 @@
-package br.zup.GerenciadorZup.gerenciador;
+package br.zup.GerenciadorZup.gerenciador.enuns;
 
 public enum Status {
 

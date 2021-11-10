@@ -1,5 +1,8 @@
 package br.zup.GerenciadorZup.gerenciador;
 
+import br.zup.GerenciadorZup.gerenciador.enuns.Status;
+import br.zup.GerenciadorZup.gerenciador.enuns.Tipo;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
