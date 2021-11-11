@@ -5,6 +5,8 @@ import br.zup.GerenciadorZup.gerenciador.dtos.ContaDTO;
 import br.zup.GerenciadorZup.gerenciador.dtos.StatusDTO;
 import br.zup.GerenciadorZup.gerenciador.dtos.ResumoDTO;
 import br.zup.GerenciadorZup.gerenciador.dtos.RetornoDTO;
+import br.zup.GerenciadorZup.gerenciador.enuns.Status;
+import br.zup.GerenciadorZup.gerenciador.exceptions.StatusInvalido;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -56,9 +58,12 @@ public class ContaController {
     @PutMapping ("/{id}")
     public RetornoDTO atualizarContas (@PathVariable Integer id, @RequestBody StatusDTO contasPagasDTO) {
 
-       RetornoDTO retornoDTO = modelMapper.map(contaService.atualizarConta(id), RetornoDTO.class);
+        if (contasPagasDTO.getStatus() == Status.PAGO) {
+            return modelMapper.map(contaService.atualizarConta(id), RetornoDTO.class);
 
-        return retornoDTO;
+        }
+
+        throw new StatusInvalido("Esse tipo de Status de conta não é permitido. Tente novamente.");
 
     }
 
