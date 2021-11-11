@@ -46,4 +46,13 @@ public class ContaService {
         return conta.get();
     }
 
+    public Conta atualizarConta (int id) {
+
+        Conta conta = buscarContaId(id);
+        conta.setStatus(Status.PAGO);
+        contaRepository.save(conta);
+
+        return conta;
+    }
+
 }
