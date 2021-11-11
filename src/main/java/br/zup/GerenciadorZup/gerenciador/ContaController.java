@@ -2,6 +2,7 @@ package br.zup.GerenciadorZup.gerenciador;
 
 
 import br.zup.GerenciadorZup.gerenciador.dtos.ContaDTO;
+import br.zup.GerenciadorZup.gerenciador.dtos.StatusDTO;
 import br.zup.GerenciadorZup.gerenciador.dtos.ResumoDTO;
 import br.zup.GerenciadorZup.gerenciador.dtos.RetornoDTO;
 import org.modelmapper.ModelMapper;
@@ -23,7 +24,6 @@ public class ContaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-
     public RetornoDTO realizarCadastro (@RequestBody ContaDTO contaDTo) {
 
     Conta conta = modelMapper.map(contaDTo , Conta.class);
@@ -51,5 +51,14 @@ public class ContaController {
          return contasDTOS;
     }
 
+
+    @PutMapping ("/{id}")
+    public RetornoDTO atualizarContas (@PathVariable Integer id, @RequestBody StatusDTO contasPagasDTO) {
+
+       RetornoDTO retornoDTO = modelMapper.map(contaService.atualizarConta(id), RetornoDTO.class);
+
+        return retornoDTO;
+
+    }
 
 }
