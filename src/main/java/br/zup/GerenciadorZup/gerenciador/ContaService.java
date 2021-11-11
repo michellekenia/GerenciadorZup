@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ContaService {
@@ -28,12 +29,21 @@ public class ContaService {
 
     }
 
-    public List <Conta> exibirTodasAsContas () {
+    public List<Conta> exibirTodasAsContas() {
 
-        List <Conta> contas = (List<Conta>) contaRepository.findAll();
+        List<Conta> contas = (List<Conta>) contaRepository.findAll();
         return contas;
 
     }
 
+    public Conta buscarContaId(int id) {
+        Optional<Conta> conta = contaRepository.findById(id);
+
+        if (conta.isEmpty()) {
+            throw new RuntimeException("Id não encontrado");
+        }
+
+        return conta.get();
+    }
 
 }
