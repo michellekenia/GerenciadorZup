@@ -67,4 +67,12 @@ public class ContaController {
 
     }
 
+    @GetMapping ("/{id}")
+    public RetornoDTO buscarContaEspecifica (@PathVariable int id) {
+
+        Conta contaEspecifica = contaService.buscarContaId(id);
+
+        return modelMapper.map(contaEspecifica, RetornoDTO.class);
+    }
+
 }
