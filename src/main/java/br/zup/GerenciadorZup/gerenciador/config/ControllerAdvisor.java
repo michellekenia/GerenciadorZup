@@ -1,6 +1,6 @@
 package br.zup.GerenciadorZup.gerenciador.config;
 
-import br.zup.GerenciadorZup.gerenciador.exceptions.NomeMenorDoQuePermitido;
+import br.zup.GerenciadorZup.gerenciador.exceptions.IdNaoEncontrado;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -28,11 +28,11 @@ public class ControllerAdvisor {
 
     }
 
-    /*@ExceptionHandler (NomeMenorDoQuePermitido)
+    @ExceptionHandler (IdNaoEncontrado.class)
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
-    public MensagemDeErro manipularExcecaoNomeInvalido(NomeMenorDoQuePermitido exception) {
+    public MensagemDeErro manipularExcecaoNomeInvalido(IdNaoEncontrado exception) {
 
         return new MensagemDeErro(exception.getMessage());
-    */
+    }
 
 }
