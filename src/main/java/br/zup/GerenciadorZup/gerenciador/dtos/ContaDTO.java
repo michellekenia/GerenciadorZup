@@ -7,8 +7,10 @@ import java.time.LocalDate;
 
 public class ContaDTO {
 
+    @NotBlank
     @Size (min = 2 , message = "Nome menor do que o permitido" )
     private String nome;
+    @NotNull
     @DecimalMin(value = "0.01", message = "Valor menor do que o permitido")
     private double valor;
     private Tipo tipo;
