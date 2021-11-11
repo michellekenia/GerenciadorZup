@@ -14,10 +14,13 @@ public class Conta  {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
+    @Column (unique = true)
     private String nome;
+    @Column (unique = true)
     private double valor;
     @Enumerated(EnumType.STRING)
     private Tipo tipo;
+    @Column (unique = true)
     private LocalDate dataDeVencimento;
     private LocalDateTime dataDePagamento;
     @Enumerated(EnumType.STRING)
