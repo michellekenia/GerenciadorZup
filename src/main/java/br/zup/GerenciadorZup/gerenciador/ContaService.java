@@ -1,6 +1,7 @@
 package br.zup.GerenciadorZup.gerenciador;
 
 import br.zup.GerenciadorZup.gerenciador.enuns.Status;
+import br.zup.GerenciadorZup.gerenciador.exceptions.IdNaoEncontrado;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +42,7 @@ public class ContaService {
         Optional<Conta> conta = contaRepository.findById(id);
 
         if (conta.isEmpty()) {
-            throw new RuntimeException("Id não encontrado");
+            throw new IdNaoEncontrado("Id não encontrado");
         }
 
         return conta.get();
