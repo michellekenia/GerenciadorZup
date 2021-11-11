@@ -1,22 +1,18 @@
 package br.zup.GerenciadorZup.gerenciador.dtos;
 
 import br.zup.GerenciadorZup.gerenciador.enuns.Tipo;
-import com.sun.istack.NotNull;
 
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 public class ContaDTO {
 
     @Size (min = 2 , message = "Nome menor do que o permitido" )
     private String nome;
-    @DecimalMin("0.01")
+    @DecimalMin(value = "0.01", message = "Valor menor do que o permitido")
     private double valor;
     private Tipo tipo;
-    @NotNull
+    @NotNull (message = "A data de vencimento está em branco")
     private LocalDate dataDeVencimento;
 
     public ContaDTO() {
