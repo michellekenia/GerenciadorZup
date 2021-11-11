@@ -16,9 +16,11 @@ public class Conta  {
     private int id;
     private String nome;
     private double valor;
+    @Enumerated(EnumType.STRING)
     private Tipo tipo;
     private LocalDate dataDeVencimento;
     private LocalDateTime dataDePagamento;
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     public Conta() {
