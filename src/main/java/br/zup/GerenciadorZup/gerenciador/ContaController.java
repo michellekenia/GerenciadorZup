@@ -76,4 +76,10 @@ public class ContaController {
         return modelMapper.map(contaEspecifica, RetornoDTO.class);
     }
 
+    @DeleteMapping ("/{id}")
+    @ResponseStatus (HttpStatus.NO_CONTENT)
+    public void deletarConta (@PathVariable int id) {
+        contaService.deletarConta(id);
+    }
+
 }
