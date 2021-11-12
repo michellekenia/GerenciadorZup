@@ -31,14 +31,14 @@ public class ControllerAdvisor {
     }
 
     @ExceptionHandler (IdNaoEncontrado.class)
-    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     public MensagemDeErro manipularExcecaoIdNaoEncontrado(IdNaoEncontrado exception) {
 
         return new MensagemDeErro(exception.getMessage());
     }
 
     @ExceptionHandler (StatusInvalido.class)
-    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     public MensagemDeErro manipularExcecaoStatusInvalido(StatusInvalido exception) {
 
         return new MensagemDeErro(exception.getMessage());
