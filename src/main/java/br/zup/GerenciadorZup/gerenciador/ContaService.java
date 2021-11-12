@@ -1,6 +1,7 @@
 package br.zup.GerenciadorZup.gerenciador;
 
 import br.zup.GerenciadorZup.gerenciador.enuns.Status;
+import br.zup.GerenciadorZup.gerenciador.enuns.Tipo;
 import br.zup.GerenciadorZup.gerenciador.exceptions.IdNaoEncontrado;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,11 @@ public class ContaService {
 
     }
 
-    public List<Conta> exibirTodasAsContas() {
+    public List<Conta> exibirTodasAsContas(Status status) {
+
+        if (status != null) {
+            return contaRepository.findAllByStatus(status);
+        }
 
         List<Conta> contas = (List<Conta>) contaRepository.findAll();
         return contas;
