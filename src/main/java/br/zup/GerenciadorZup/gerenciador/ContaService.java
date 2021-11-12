@@ -57,7 +57,7 @@ public class ContaService {
         return conta.get();
     }
 
-    public Conta atualizarConta (int id) {
+    public Conta atualizarConta(int id) {
 
         Conta conta = buscarContaId(id);
         conta.setStatus(Status.PAGO);
@@ -65,6 +65,16 @@ public class ContaService {
         contaRepository.save(conta);
 
         return conta;
+    }
+
+    public void deletarConta (int id) {
+
+        if (contaRepository.existsById(id)) {
+            contaRepository.deleteById(id);
+        } else {
+            throw new IdNaoEncontrado("Essa conta não existe.");
+        }
+
     }
 
 }
