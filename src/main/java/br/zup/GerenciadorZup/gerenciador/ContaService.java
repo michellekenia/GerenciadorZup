@@ -32,10 +32,14 @@ public class ContaService {
 
     }
 
-    public List<Conta> exibirTodasAsContas(Status status) {
+    public List<Conta> exibirTodasAsContas(Status status, Tipo tipo) {
 
         if (status != null) {
             return contaRepository.findAllByStatus(status);
+        }
+
+        if (tipo != null) {
+            return contaRepository.findAllByTipo(tipo);
         }
 
         List<Conta> contas = (List<Conta>) contaRepository.findAll();
