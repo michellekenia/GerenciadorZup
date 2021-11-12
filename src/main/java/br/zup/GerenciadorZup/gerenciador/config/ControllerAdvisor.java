@@ -48,7 +48,7 @@ public class ControllerAdvisor {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public MensagemDeErro manipularExcecaoEnum (HttpMessageNotReadableException exception) {
 
-        return new MensagemDeErro("Enum não encontrado");
+        return new MensagemDeErro("Enum não encontrado." + exception.getCause());
     }
 
 
