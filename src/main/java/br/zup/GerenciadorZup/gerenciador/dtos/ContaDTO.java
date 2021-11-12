@@ -8,13 +8,13 @@ import java.time.LocalDate;
 public class ContaDTO {
 
     @NotBlank
-    @Size (min = 2 , message = "Nome menor do que o permitido" )
+    @Size (min = 2 , message = "Nome menor do que o permitido." )
     private String nome;
     @NotNull
-    @DecimalMin(value = "0.01", message = "Valor menor do que o permitido")
+    @DecimalMin(value = "0.01", message = "Valor menor do que o permitido.")
     private double valor;
     private Tipo tipo;
-    @NotNull (message = "A data de vencimento está em branco")
+    @NotNull (message = "A data de vencimento está em branco.")
     private LocalDate dataDeVencimento;
 
     public ContaDTO() {
