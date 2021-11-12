@@ -32,7 +32,7 @@ public class ContaService {
 
     }
 
-    public List<Conta> exibirTodasAsContas(Status status, Tipo tipo) {
+    public List<Conta> exibirTodasAsContas(Status status, Tipo tipo, Double valor) {
 
         if (status != null) {
             return contaRepository.findAllByStatus(status);
@@ -40,6 +40,10 @@ public class ContaService {
 
         if (tipo != null) {
             return contaRepository.findAllByTipo(tipo);
+        }
+
+        if (valor != null) {
+            return contaRepository.findAllAproximatedContas(valor);
         }
 
         List<Conta> contas = (List<Conta>) contaRepository.findAll();
@@ -51,7 +55,7 @@ public class ContaService {
         Optional<Conta> conta = contaRepository.findById(id);
 
         if (conta.isEmpty()) {
-            throw new IdNaoEncontrado("Id não encontrado");
+            throw new IdNaoEncontrado("Id não encontrado.");
         }
 
         return conta.get();
@@ -67,7 +71,7 @@ public class ContaService {
         return conta;
     }
 
-    public void deletarConta (int id) {
+    public void deletarConta(int id) {
 
         if (contaRepository.existsById(id)) {
             contaRepository.deleteById(id);

@@ -16,7 +16,7 @@ public class Conta  {
     private int id;
     @Column (unique = true)
     private String nome;
-    @Column (unique = true)
+    @Column
     private double valor;
     @Enumerated(EnumType.STRING)
     private Tipo tipo;

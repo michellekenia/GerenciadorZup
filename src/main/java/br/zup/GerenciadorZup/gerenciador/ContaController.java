@@ -40,11 +40,13 @@ public class ContaController {
     }
 
     @GetMapping
-    public List <ResumoDTO> exibirContas (@RequestParam (required = false)Status status, Tipo tipo) {
+    public List <ResumoDTO> exibirContas (@RequestParam (required = false)Status status,
+                                          @RequestParam (required = false)Tipo tipo,
+                                          @RequestParam (required = false) Double valor) {
 
         List <ResumoDTO> contasDTOS = new ArrayList<>();
 
-        for (Conta conta : contaService.exibirTodasAsContas(status, tipo)) {
+        for (Conta conta : contaService.exibirTodasAsContas(status, tipo, valor)) {
 
             ResumoDTO resumoDTO = modelMapper.map(conta, ResumoDTO.class);
 
